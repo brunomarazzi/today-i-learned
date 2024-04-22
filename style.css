@@ -20,29 +20,47 @@ body {
   color: #fafaf9;
   background-color: #292524;
   overflow-x: hidden;
+  padding: 4rem;
+}
+
+.header {
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
 }
 
 .fact-form {
   background-color: #44403c;
+  margin-bottom: 4rem;
 }
 
 h1 {
   font-family: "Coiny", sans-serif;
   font-size: 4.2rem;
-  color: #932b8a;
   text-transform: uppercase;
-  text-align: center;
+  padding-top: 0.3rem;
 }
 
 .fact {
   font-size: 2rem;
   line-height: 1.4;
   background-color: #44403c;
+  padding: 1.6rem 2.4rem;
+  margin-bottom: 1.6rem;
 }
 
 .tag {
-  text-transform: uppercase;
+  font-family: "Coiny", sans-serif;
   font-size: 1.4rem;
+  text-transform: uppercase;
+  padding: 0.3rem 1rem 0 1rem;
 }
 
 ul {
