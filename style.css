@@ -20,10 +20,15 @@ body {
   color: #fafaf9;
   background-color: #292524;
   overflow-x: hidden;
-  padding: 4rem;
+  padding: 4.8rem 6.4rem;
 }
 
-/* LAYOUT */
+/* MAIN LAYOUT */
+
+.container {
+  max-width: 150rem;
+  margin: auto;
+}
 
 .header {
   margin-bottom: 4rem;
@@ -59,6 +64,11 @@ h1 {
   gap: 1.6rem;
 }
 
+.logo img {
+  width: 6.8rem;
+  height: 6.8rem;
+}
+
 .fact {
   font-size: 2rem;
   line-height: 1.4;
@@ -70,6 +80,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
   gap: 2.4rem;
+  border-radius: 1.6rem;
 }
 
 .tag {
@@ -77,6 +88,7 @@ h1 {
   font-size: 1.4rem;
   text-transform: uppercase;
   padding: 0.3rem 1rem 0 1rem;
+  border-radius: 0.8rem;
 }
 
 .vote-buttons {
@@ -85,4 +97,58 @@ h1 {
 
 ul {
   list-style: none;
+}
+
+.source:link,
+.source:visited {
+  color: #a8a29e;
+  text-decoration: none;
+  margin-left: 1.2rem;
+  transition: 0.3s;
+}
+
+.source:hover,
+.source:active {
+  color: #3b82f6;
+}
+
+.cat {
+  margin-bottom: 1.6rem;
+}
+
+.btn {
+  font-family: "Coiny", sans-serif;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  padding: 1.6rem 0 1.3rem;
+  background-image: linear-gradient(
+    to right,
+    #3b82f6,
+    #ef4444,
+    #16a34a,
+    #eab308
+  );
+  color: inherit;
+  border-radius: 0.8rem;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(110%) rotate(-2deg);
+}
+
+.btn-large {
+  font-size: 2rem;
+  padding: 2rem 3.2rem 1.7rem;
+}
+
+.btn-all-cat {
+  margin-bottom: 1.6rem;
+  width: 100%;
+}
+
+.btn-cat {
+  width: 100%;
+  background-image: none;
 }
