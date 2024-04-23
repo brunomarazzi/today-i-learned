@@ -23,17 +23,13 @@ body {
   padding: 4rem;
 }
 
+/* LAYOUT */
+
 .header {
   margin-bottom: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 3.2rem;
 }
 
 .fact-form {
@@ -45,15 +41,35 @@ h1 {
   font-family: "Coiny", sans-serif;
   font-size: 4.2rem;
   text-transform: uppercase;
-  padding-top: 0.3rem;
+  line-height: 1;
+  margin-top: 0.6rem;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 25rem 1fr;
+  gap: 4.8rem;
+}
+
+/* ELEMENTS */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
 }
 
 .fact {
   font-size: 2rem;
   line-height: 1.4;
+  letter-spacing: -0.1rem;
   background-color: #44403c;
   padding: 1.6rem 2.4rem;
   margin-bottom: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.4rem;
 }
 
 .tag {
@@ -61,6 +77,10 @@ h1 {
   font-size: 1.4rem;
   text-transform: uppercase;
   padding: 0.3rem 1rem 0 1rem;
+}
+
+.vote-buttons {
+  margin-left: auto;
 }
 
 ul {
