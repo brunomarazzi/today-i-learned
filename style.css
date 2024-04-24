@@ -88,11 +88,30 @@ h1 {
   font-size: 1.4rem;
   text-transform: uppercase;
   padding: 0.3rem 1rem 0 1rem;
-  border-radius: 0.8rem;
+  border-radius: 10rem;
 }
 
 .vote-buttons {
   margin-left: auto;
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.8rem;
+}
+
+.vote-buttons button {
+  background-color: #57534e;
+  border: none;
+  font-size: 1.8rem;
+  padding: 0.6rem 1.2rem;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  border-radius: 10rem;
+  transition: 0.3s;
+}
+
+.vote-buttons button:hover {
+  background-color: #292524;
 }
 
 ul {
@@ -130,8 +149,9 @@ ul {
     #eab308
   );
   color: inherit;
-  border-radius: 0.8rem;
+  border-radius: 10rem;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .btn:hover {
