@@ -20,3 +20,10 @@ function calcFactAge(year) {
 }
 
 console.log(calcFactAge(1994));
+
+const calcFactAge2 = (year) =>
+  year <= new Date().getFullYear()
+    ? new Date().getFullYear() - year
+    : `Impossible year. Year needs to be less or equal ${new Date().getFullYear()}`;
+
+console.log(calcFactAge2(1994));
