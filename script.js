@@ -32,13 +32,66 @@ const initialFacts = [
   },
 ];
 
+const CATEGORIES = [
+  { name: "technology", color: "#3b82f6" },
+  { name: "science", color: "#16a34a" },
+  { name: "finance", color: "#ef4444" },
+  { name: "society", color: "#eab308" },
+  { name: "entertainment", color: "#db2777" },
+  { name: "health", color: "#14b8a6" },
+  { name: "history", color: "#f97316" },
+  { name: "news", color: "#8b5cf6" },
+];
+
 // Selecting DOM elements
 const btn = document.querySelector(".btn-open");
 const form = document.querySelector(".fact-form");
 const factList = document.querySelector(".fact-list");
 
+// Load data from Supabase
+loadFacts();
+
+async function loadFacts() {
+  const res = await fetch(
+    "https://lavtfvqazheiwqmrusyn.supabase.co/rest/v1/facts",
+    {
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxhdnRmdnFhemhlaXdxbXJ1c3luIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3NTkyNTMsImV4cCI6MjAzMDMzNTI1M30.IaNy9npc7HKvtOqQw8OEwp1a9hqvdVVNc7OrcOi6SMY",
+        authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxhdnRmdnFhemhlaXdxbXJ1c3luIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3NTkyNTMsImV4cCI6MjAzMDMzNTI1M30.IaNy9npc7HKvtOqQw8OEwp1a9hqvdVVNc7OrcOi6SMY",
+      },
+    }
+  );
+  const data = await res.json();
+  createFactList(data);
+}
+
 // Create DOM elements: Render facts in list
 factList.innerHTML = "";
+
+function createFactList(dataArray) {
+  const htmlArr = dataArray.map(
+    (fact) => `<li class="fact">
+    <p>
+    ${fact.text}
+                  <a
+                    class="source"
+                    href="${fact.source}"
+                    target="_blank"
+                    >(Source)</a
+                  >
+                </p>
+                <span class="tag" style="background-color: #3b82f6"
+                  >${fact.category}</span
+                >
+    </li>`
+  );
+
+  console.log(htmlArr);
+  const html = htmlArr.join("");
+  factList.insertAdjacentHTML("afterbegin", html);
+}
 
 // Toggle form visibility
 btn.addEventListener("click", function () {
