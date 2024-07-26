@@ -49,16 +49,19 @@ const initialFacts = [
 
 function App() {
   const [showForm, setShowForm] = useState(false);
+  const [facts, setFacts] = useState(initialFacts);
 
   return (
     <>
       <Header showForm={showForm} setShowForm={setShowForm} />
 
-      {showForm ? <NewFactForm /> : null}
+      {showForm ? (
+        <NewFactForm setFacts={setFacts} setShowForm={setShowForm} />
+      ) : null}
 
       <main className="main">
         <CategoryFilter />
-        <FactList />
+        <FactList facts={facts} />
       </main>
     </>
   );
@@ -104,10 +107,10 @@ function isValidHttpUrl(string) {
   return url.protocol === "http:" || url.protocol === "https:";
 }
 
-function NewFactForm() {
+function NewFactForm({ setFacts, setShowForm }) {
   const [text, setText] = useState("");
-  const [source, setSource] = useState("");
-  const [category, setcategory] = useState("");
+  const [source, setSource] = useState("https://www.google.com");
+  const [category, setCategory] = useState("");
   const textLength = text.length;
 
   function handleSubmit(e) {
@@ -126,11 +129,19 @@ function NewFactForm() {
         votesInteresting: 0,
         votesMindblowing: 0,
         votesFalse: 0,
-        createdIn: new Date().getCurrentYear(),
+        createdIn: new Date().getFullYear(),
       };
+
       // 4. add the new fact to the UI: add the fact to state
+      setFacts((facts) => [newFact, ...facts]);
+
       // 5. reset input fields
+      setText("");
+      setSource("");
+      setCategory("");
+
       // 6. close the form};
+      setShowForm(false);
     }
   }
 
@@ -149,7 +160,7 @@ function NewFactForm() {
         placeholder="Trustworthy source..."
         onChange={(e) => setSource(e.target.value)}
       />
-      <select value={category} onChange={(e) => setcategory(e.target.value)}>
+      <select value={category} onChange={(e) => setCategory(e.target.value)}>
         <option value="">Choose category:</option>
         {CATEGORIES.map((cat) => (
           <option key={cat.name} value={cat.name}>
@@ -184,9 +195,7 @@ function CategoryFilter() {
   );
 }
 
-function FactList() {
-  // TEMPORARY
-  const facts = initialFacts;
+function FactList({ facts }) {
   return (
     <section>
       <ul className="fact-list">
