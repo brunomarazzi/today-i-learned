@@ -20,7 +20,7 @@ body {
   color: #fafaf9;
   background-color: #292524;
   overflow-x: hidden;
-  padding: 4.8rem 6.4rem;
+  padding: 4.8rem 6.4rem 0;
 }
 
 .hidden {
@@ -35,11 +35,17 @@ body {
   margin-top: 2.4rem;
 }
 
+.disputed {
+  color: #ef4444;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
 /* MAIN LAYOUT */
 
 #root {
   max-width: 1500px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .header {
@@ -61,12 +67,18 @@ h1 {
   display: grid;
   grid-template-columns: 25rem 1fr;
   gap: 4.8rem;
+  height: calc(100vh - 68px - 40px - 48px - 48px);
 }
 
 @media (max-width: 900px) {
   .main {
     grid-template-columns: 1fr;
   }
+}
+
+section {
+  overflow: scroll;
+  padding-bottom: 4rem;
 }
 
 /* ELEMENTS */
@@ -133,6 +145,10 @@ h1 {
 
 .vote-buttons button:hover {
   background-color: #292524;
+}
+
+.vote-buttons button:disabled {
+  background-color: #44403c;
 }
 
 ul {
@@ -245,5 +261,31 @@ ul {
   .fact-form input,
   .fact-form select {
     width: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  #root {
+    padding: 24px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .fact-form {
+    padding: 16px;
+  }
+
+  .fact {
+    padding: 12px 16px;
   }
 }
