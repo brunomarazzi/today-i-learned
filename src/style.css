@@ -249,10 +249,6 @@ ul {
 }
 
 @media (max-width: 1000px) {
-  body {
-    /* padding: 3.2rem 4.8rem; */
-  }
-
   .fact-form {
     flex-direction: column;
     align-items: stretch;
