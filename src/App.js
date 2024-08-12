@@ -143,7 +143,7 @@ function isValidHttpUrl(string) {
 
 function NewFactForm({ setFacts, setShowForm }) {
   const [text, setText] = useState("");
-  const [source, setSource] = useState("https://www.google.com");
+  const [source, setSource] = useState("");
   const [category, setCategory] = useState("");
   const [isUploading, setisUploading] = useState(false);
   const textLength = text.length;
